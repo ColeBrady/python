@@ -1,12 +1,15 @@
 
 
-class Television():
+class Television:
     MIN_VOLUME = 0
     MAX_VOLUME = 2
     MIN_CHANNEL = 0
     MAX_CHANNEL = 3
 
     def __init__(self):
+        """
+        Creates a television object.
+        """
         self.__status = False
         self.__muted = False
         self.__volume = self.MIN_VOLUME
@@ -15,6 +18,9 @@ class Television():
 
 
     def power(self):
+        """
+        Turns the television on and off.
+        """
         if not self.__status:
             self.__status = True
 
@@ -23,6 +29,9 @@ class Television():
 
 
     def mute(self):
+        """
+        Mutes the television.
+        """
         if self.__status:
             if not self.__muted:
                 self.__muted = True
@@ -35,6 +44,9 @@ class Television():
 
 
     def channel_up(self):
+        """
+        Turns the channel up.
+        """
         if self.__status:
             if self.__channel == self.MAX_CHANNEL:
                 self.__channel = self.MIN_CHANNEL
@@ -44,6 +56,9 @@ class Television():
 
 
     def channel_down(self):
+        """
+        Turns the channel down.
+        """
         if self.__status:
             if self.__channel == self.MIN_CHANNEL:
                 self.__channel = self.MAX_CHANNEL
@@ -53,6 +68,9 @@ class Television():
 
 
     def volume_up(self):
+        """
+        Turns the volume up.
+        """
         if self.__status:
             if self.__muted:
                 self.mute()
@@ -62,6 +80,9 @@ class Television():
 
 
     def volume_down(self):
+        """
+        Turns the volume down.
+        """
         if self.__status:
             if self.__muted:
                 self.mute()
@@ -71,4 +92,8 @@ class Television():
 
 
     def __str__(self):
+        """
+        Changes the built-in str object.
+        :return: Sting with televisions properties.
+        """
         return f'Power = {self.__status}, Channel = {self.__channel}, Volume = {self.__volume}'
